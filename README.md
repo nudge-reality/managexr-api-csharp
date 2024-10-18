@@ -55,7 +55,7 @@ namespace ManageXRExample
         static void Main(string[] args)
         {
             // Store Credentials
-            var credentials = new AuthCredentials("your-organisation-id", "your-key-id", "your-key-secret")
+            var credentials = new AuthCredentials("your-organisation-id", "your-key-id", "your-key-secret");
             
             // Initialise the API client
             var mxrClient = new ManageXRClient(credentials, new HttpClient());
