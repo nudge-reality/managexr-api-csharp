@@ -1,0 +1,32 @@
+﻿name: Pack and Publish on Release
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  pack-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v4
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Pack
+        run: dotnet pack --configuration Release --no-build --output ./nupkg
+
+      - name: Publish to GitHub Packages
+        run: dotnet nuget push ./nupkg/*.nupkg --source https://nuget.pkg.github.com/nudge-reality/index.json --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
+        
+      - name: Publish to NuGet
+        run: dotnet nuget push ./nupkg/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.NUGET_TOKEN}}

@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;netstandard2.1;net462;net6.0;net7.0;net8.0</TargetFrameworks>
+        <PackageId>ManageXRAPI.Client.Extensions</PackageId>
+        <Title>ManageXR API Client - Extensions</Title>
+        <Authors>Dan Blackburn</Authors>
+        <Description>Provides extension methods for Microsoft.Extensions.DependencyInjection ServiceCollection to simplify the registration and configuration of ManageXR API Client services.</Description>
+        <PackageProjectUrl>https://docs.managexr.com</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/nudge-reality/managexr-api-csharp?tab=MIT-1-ov-file#</PackageLicenseUrl>
+        <PackageIcon>icon.png</PackageIcon>
+        <RepositoryUrl>https://github.com/nudge-reality/managexr-api-csharp</RepositoryUrl>
+        <RepositoryType>Public</RepositoryType>
+        <PackageTags>MangeXR API Extensions</PackageTags>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\ManageXRAPI.Client\ManageXRAPI.Client.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <None Include="../README.md" Pack="true" PackagePath="\"/>
+        <None Include="../icon.png" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+</Project>
